@@ -16,8 +16,10 @@
           </tr>       
         </thead>
         <tbody>
-          {% for p in products %}
-          <tr>{{ p }}</tr>
+          {% for product in products %}
+          <tr>
+           <td> {{ product }} </td>
+        </tr>
           {% endfor %}
         </tbody>
       </table>

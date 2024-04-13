@@ -11,41 +11,42 @@
   {% block extrastyle %}{% endblock extrastyle %}
   {% block extrahead %}{% endblock extrahead %}
 </head>
-  <body id="page-top">
+<body>
 
-{% block content %}
-    
+  {% block pre_loader %}
+    {% include 'includes/pre-loader.html' %}
+  {% endblock pre_loader %}
+  
+  {% block sidebar %}
+    {% include 'includes/vendor_sidebar.html' %}
+  {% endblock sidebar %}
 
-{% endblock content %}
+  {% block header %}
+    {% include 'includes/navigation.html' %}
+  {% endblock header %}
 
+  <!-- [ Main Content ] start -->
+  <div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+      <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+          <!-- [ breadcrumb ] start -->
+          {% block breadcrumbs %}
+            {% include 'includes/breadcrumb.html' %}
+          {% endblock breadcrumbs %}
+          <!-- [ breadcrumb ] end -->
+          <div class="main-body">
+            <div class="page-wrapper">
+              {% block content %}{% endblock content %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
- 
-    {% comment %} navbar ends here {% endcomment %}
+  {% include 'includes/scripts.html' %}
+  {% block extra_js %}{% endblock extra_js %}
 
-    <!-- Hero sections starts here -->
-   
-    {% comment %} {% include 'Sidebar.html' %} {% endcomment %}
-    <!-- hero section ends here -->
-
-
-
-
-
-       <!-- Bootstrap core JavaScript-->
-    <script src={% static "vendor/jquery/jquery.min.js"%}></script>
-    <script src={% static "vendor/bootstrap/js/bootstrap.bundle.min.js"%}></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src={% static "vendor/jquery-easing/jquery.easing.min.js"%}></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src={% static "js/sb-admin-2.min.js"%}></script>
-
-    <!-- Page level plugins -->
-    <script src={% static "vendor/chart.js/Chart.min.js"%}></script>
-
-    <!-- Page level custom scripts -->
-    <script src={% static "js/demo/chart-area-demo.js"%}></script>
-    <script src={% static "js/demo/chart-pie-demo.js"%}></script>
-  </body>
+</body>
 </html>

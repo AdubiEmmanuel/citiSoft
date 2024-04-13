@@ -24,6 +24,13 @@ def homepage(request):
   }
   return render(request, "pages/landingpage.html", context)
 
+
+def tables(request):
+  context = {
+    'segment': 'tables'
+  }
+  return render(request, "pages/dynamic-tables.html", context)
+
 def tables(request):
   context = {
     'segment': 'tables'
@@ -33,9 +40,15 @@ def tables(request):
 
 def client_tables(request):
   context = {
-    'segment': 'tables'
+    'client': 'tables'
   }
   return render(request, "pages/client_table.html", context)
+
+def vendor_tables(request):
+  context = {
+    'vendor': 'tables'
+  }
+  return render(request, "pages/dynamic-tables.html", context)
 
 @login_required
 def userLogout(request):

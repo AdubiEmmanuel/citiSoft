@@ -18,9 +18,38 @@
 
 <div class="row">
   <div class="col-md-12"> 
-    <div class="iframe-container">
-      <iframe class="parent-fit" src="/datatb/product/"></iframe>    
-    </div>
+      <table class="table table-responsive">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Type_of_software</th>
+            <th>Vendor_id</th>
+            <th>Website</th>
+            <th>Product_category</th>
+            <th>Description</th>
+            <th>Software_name</th>
+            <th>Business_areas</th>
+            <th>Modules</th>
+            <th>Financial_services_client_types</th>
+            <th>Cloud_type</th>
+            <th>Additional_info</th>  
+          </tr>       
+        </thead>
+        <tbody>
+          {% if products %}
+          {% for product in products %}
+          <tr>
+           <td> {{ product }} </td>
+        </tr>
+          {% endfor %}
+          {% else %}
+          <tr>
+            <td>No product available yet</td>
+          </tr>
+          {% endif %}
+        </tbody>
+      </table>
     </div>
 </div>
+
 {% endblock content %}

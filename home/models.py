@@ -9,7 +9,6 @@ class HideCharField(HideField, models.CharField):
 
 class Product(models.Model):
     id    = models.AutoField(primary_key=True)
-    company_name = HideCharField(max_length=200, default=False, null=True)
     type_of_software = models.CharField(max_length=200, default=False)
     # vendor_id = models.PositiveIntegerField(default=False)
     website = models.CharField(max_length=50, default=False)
@@ -19,6 +18,7 @@ class Product(models.Model):
     business_areas = models.CharField(max_length=200, default=False)
     modules = models.CharField(max_length=50, default=False)
     financial_services_client_types = models.CharField(max_length=100, default=False)
+    created_by = models.ForeignKey(User, blank=False, default=False, on_delete=models.CASCADE)
     cloud_options = (
         ('cloud_native', 'cloud_native'),
         ('cloud_based', 'cloud_based'),
