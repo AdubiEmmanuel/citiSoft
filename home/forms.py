@@ -61,6 +61,9 @@ class vendorAddForm(forms.ModelForm):
                     # 'cloud_type' :forms.ChoiceField(choices=cloud_options, widget=forms.Select(attrs={'class':'form-control'})),
                     # 'document_to_attach':forms.FileField(widget=forms.FileInput(attrs={'class': 'form-control'}))
         }
+        
+        
+
 
 
         

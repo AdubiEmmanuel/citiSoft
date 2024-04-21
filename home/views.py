@@ -22,7 +22,6 @@ def homepage(request):
 
   context = {
     'segment'  : 'index',
-    #'products' : Product.objects.all()
   }
   return render(request, "pages/landingpage.html", context)
 
@@ -35,7 +34,6 @@ def tables(request):
 
 def client_tables(request):
   products = Product.objects.all()
-  print("##############",products, "#######################")
   return render(request, "pages/client_table.html", {'products':products})
 
 def vendor_tables(request):
@@ -103,14 +101,6 @@ def userLogin(request):
                     current=Client.objects.get(client=request.user)
                 except Client.DoesNotExist:
                     current=Vendor.objects.get(vendor=request.user)
-                    try:
-                        vendor = Vendor.objects.get(pk=id)
-                    except Vendor.DoesNotExist:
-                        vendor = None
-                    try:
-                        vendor = Vendor.objects.get(pk=id)
-                    except Vendor.DoesNotExist:
-                        vendor = None
                     if current.is_client:
                         return redirect('/client/')
                     else:
